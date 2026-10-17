@@ -31,37 +31,37 @@ The platform brings monitoring, distributed tracing, document intelligence, resp
 
 Monitor request volume, latency percentiles, errors, throughput, and estimated costs.
 
-![ObserveAI observability dashboard](assets/screenshots/dashboard-overview.png)
+![ObserveAI observability dashboard](dashboard-overview.png)
 
 ### Dashboard Metrics
 
 Review service health and performance indicators across the selected time window.
 
-![ObserveAI dashboard metrics](assets/screenshots/dashboard-metrics.png)
+![ObserveAI dashboard metrics](dashboard-metrics.png)
 
 ### RAG Playground and Document Upload
 
 Upload PDF or TXT documents, choose knowledge sources, and inspect document processing status.
 
-![ObserveAI RAG Playground](assets/screenshots/rag-playground.png)
+![ObserveAI RAG Playground](rag-playground.png)
 
 ### Distributed Tracing
 
 Inspect recent requests, model execution details, request status, and processing duration.
 
-![ObserveAI traces and spans](assets/screenshots/traces-spans.png)
+![ObserveAI traces and spans](traces-spans.png)
 
 ### RAG Response and Grounding
 
 Review retrieved passages, grounding information, and response-generation diagnostics.
 
-![ObserveAI RAG response](assets/screenshots/rag-response.png)
+![ObserveAI RAG response](rag-response.png)
 
 ### Latency Analytics
 
 Compare average and P95 latency over time to identify performance spikes and possible bottlenecks.
 
-![ObserveAI latency analytics](assets/screenshots/latency-analytics.png)
+![ObserveAI latency analytics](latency-analytics.png)
 
 ## Architecture
 
@@ -85,7 +85,7 @@ flowchart TD
     I --> O[PII Redaction]
 ```
 
-*Conceptual architecture; component boundaries should be verified against the implementation.*
+*Conceptual architecture; verify component boundaries against the implementation.*
 
 ## Technology Stack
 
@@ -109,7 +109,7 @@ Install the tools and services required by the project, as applicable:
 
 - Git
 - Node.js and npm
-- PostgreSQL
+- PostgreSQL, if required
 - An LLM provider API key, if generative responses are enabled
 
 ### Clone the Repository
