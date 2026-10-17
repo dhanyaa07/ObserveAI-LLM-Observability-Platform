@@ -3,95 +3,67 @@
 **A unified platform for monitoring, evaluating, and improving the reliability, performance, and cost efficiency of LLM-powered applications.**
 
 <p align="center">
-  <img src="https://img.shields.io/badge/LLM-Observability-2563EB?style=flat-square" />
-  <img src="https://img.shields.io/badge/RAG-Reliability-0891B2?style=flat-square" />
-  <img src="https://img.shields.io/badge/OpenTelemetry-Integrated-7C3AED?style=flat-square" />
-  <img src="https://img.shields.io/badge/Privacy-PII%20Redaction-059669?style=flat-square" />
+  <img src="https://img.shields.io/badge/LLM-Observability-2563EB?style=flat-square" alt="LLM Observability" />
+  <img src="https://img.shields.io/badge/RAG-Reliability-0891B2?style=flat-square" alt="RAG Reliability" />
+  <img src="https://img.shields.io/badge/OpenTelemetry-Integrated-7C3AED?style=flat-square" alt="OpenTelemetry" />
+  <img src="https://img.shields.io/badge/Privacy-PII%20Redaction-059669?style=flat-square" alt="PII Redaction" />
 </p>
 
 ## Overview
 
-ObserveAI is an LLM observability platform designed to provide end-to-end visibility into AI application performance, retrieval-augmented generation (RAG) workflows, model execution, and operational costs.
+ObserveAI is an LLM observability platform designed to provide visibility into AI application performance, retrieval-augmented generation (RAG) workflows, model execution, and operational costs.
 
 The platform brings monitoring, distributed tracing, document intelligence, response evaluation, and privacy-oriented data handling into a centralized dashboard. It helps developers investigate performance bottlenecks, analyze retrieved context, monitor request failures, and understand the behavior of LLM-powered systems.
 
 ## Key Features
 
-### 1. Observability Dashboard
-- Monitor total requests, average latency, P95 latency, error rate, and throughput.
-- Visualize latency trends across configurable time ranges.
-- Track estimated inference costs.
-- Generate demonstration traffic for testing monitoring workflows.
-
-### 2. RAG Playground and Document Intelligence
-- Upload and process PDF and TXT documents.
-- Select knowledge-base, uploaded-document, or combined retrieval sources.
-- Inspect document processing status and chunk information.
-- Submit natural-language queries against available knowledge sources.
-- Examine retrieved passages and response-grounding information.
-- Support extractive responses when a generative provider is not configured.
-
-### 3. Distributed Tracing
-- Inspect individual requests and execution traces.
-- Analyze model execution duration and request status.
-- Identify slow pipeline stages and potential retrieval bottlenecks.
-- Investigate failures and latency variations.
-
-### 4. LLM Evaluation
-- Provide an interface for LLM-as-a-judge evaluation workflows.
-- Support response-quality and grounding analysis.
-- Enable systematic inspection of AI-generated outputs.
-
-### 5. Cost and Performance Analytics
-- Track token consumption and estimated inference expenditure.
-- Monitor request latency and throughput.
-- Analyze operational metrics to identify optimization opportunities.
-
-### 6. Alerts and Configuration
-- Centralize monitoring alerts and application settings.
-- Support configuration of relevant AI-provider integrations.
-- Provide visibility into operational health.
-
-### 7. Data Privacy and Telemetry
-- Incorporate PII redaction into the data-handling workflow.
-- Integrate OpenTelemetry for instrumentation and tracing.
-- Support privacy-conscious storage and operational diagnostics.
+- **Observability dashboard:** Monitor request volume, average and P95 latency, error rate, throughput, and estimated inference cost.
+- **RAG playground:** Upload PDF and TXT documents, select retrieval sources, submit natural-language queries, and inspect retrieved passages.
+- **Distributed tracing:** Review request status, model information, execution durations, and pipeline bottlenecks.
+- **LLM evaluation:** Provide an interface for inspecting response quality and grounding through LLM-as-a-judge workflows.
+- **Cost and performance analytics:** Track token usage, estimated expenditure, and request performance.
+- **Alerts and settings:** Centralize monitoring alerts and application configuration.
+- **Privacy and telemetry:** Incorporate PII redaction and OpenTelemetry-based instrumentation.
 
 ## Screenshots
 
 ### Observability Dashboard
 
-Monitor request volume, latency percentiles, errors, throughput, estimated costs, and historical performance trends.
+Monitor request volume, latency percentiles, errors, throughput, and estimated costs.
 
-![ObserveAI Dashboard](assets/screenshots/dashboard.png)
+![ObserveAI observability dashboard](assets/screenshots/dashboard-overview.png)
 
-### RAG Playground
+### Dashboard Metrics
 
-Upload organizational documents, configure retrieval sources, and inspect document readiness.
+Review service health and performance indicators across the selected time window.
 
-![RAG Playground](assets/screenshots/rag-playground.png)
+![ObserveAI dashboard metrics](assets/screenshots/dashboard-metrics.png)
+
+### RAG Playground and Document Upload
+
+Upload PDF or TXT documents, choose knowledge sources, and inspect document processing status.
+
+![ObserveAI RAG Playground](assets/screenshots/rag-playground.png)
 
 ### Distributed Tracing
 
-Review recent requests, execution status, model information, and processing durations.
+Inspect recent requests, model execution details, request status, and processing duration.
 
-![Traces and Spans](assets/screenshots/traces-spans.png)
+![ObserveAI traces and spans](assets/screenshots/traces-spans.png)
 
-### Response Grounding
+### RAG Response and Grounding
 
-Inspect retrieved passages, grounding indicators, and response-generation diagnostics.
+Review retrieved passages, grounding information, and response-generation diagnostics.
 
-![RAG Response Analysis](assets/screenshots/rag-response.png)
+![ObserveAI RAG response](assets/screenshots/rag-response.png)
 
 ### Latency Analytics
 
-Compare average and P95 latency over time to identify performance spikes.
+Compare average and P95 latency over time to identify performance spikes and possible bottlenecks.
 
-![Latency Analytics](assets/screenshots/latency-analytics.png)
+![ObserveAI latency analytics](assets/screenshots/latency-analytics.png)
 
 ## Architecture
-
-The platform combines document ingestion and retrieval with LLM processing and an observability layer.
 
 ```mermaid
 flowchart TD
@@ -113,29 +85,31 @@ flowchart TD
     I --> O[PII Redaction]
 ```
 
-*Conceptual architecture; component boundaries may vary with the implementation.*
+*Conceptual architecture; component boundaries should be verified against the implementation.*
 
 ## Technology Stack
 
-| Technology | Purpose |
+| Technology / Component | Purpose |
 |---|---|
 | OpenTelemetry | Instrumentation and distributed tracing |
 | PostgreSQL | Relational data persistence |
 | Drizzle ORM | Database access and schema management |
 | Retrieval-Augmented Generation (RAG) | Document-grounded question answering |
-| Large Language Models | Response generation and evaluation |
-| PDF and TXT processing | Document ingestion |
-| Data Loss Prevention (DLP) | Sensitive-data handling |
+| LLM integrations | Response generation and evaluation |
+| PDF / TXT processing | Document ingestion |
+| DLP / PII redaction | Sensitive-data handling |
+
+*Confirm each technology against the repository's actual dependencies and configuration.*
 
 ## Getting Started
 
 ### Prerequisites
 
-Install the tools and services required by the repository:
+Install the tools and services required by the project, as applicable:
 
 - Git
-- Node.js and npm, if applicable to the configured frontend
-- PostgreSQL, if required for local deployment
+- Node.js and npm
+- PostgreSQL
 - An LLM provider API key, if generative responses are enabled
 
 ### Clone the Repository
@@ -147,7 +121,7 @@ cd ObserveAI-LLM-Observability-Platform
 
 ### Install Dependencies
 
-Use the package manager and installation commands specified by the project configuration. For an npm-based application:
+Use the package manager and installation commands specified by the repository. For an npm-based application:
 
 ```bash
 npm install
@@ -155,19 +129,17 @@ npm install
 
 ### Configure Environment Variables
 
-Create the required `.env` file and configure the database connection and AI-provider credentials using the variable names expected by the application.
-
-Keep credentials out of source control and never commit secrets to the repository.
+Create the required `.env` file and configure the database connection and provider credentials using the variable names expected by the application. Never commit secrets or API keys.
 
 ### Run the Application
 
-Start the frontend and backend using the commands defined in the repository's configuration. For a Vite frontend, the development command is commonly:
+Start the frontend and backend using the commands defined in the project configuration. For a Vite frontend, the development command is commonly:
 
 ```bash
 npm run dev
 ```
 
-Refer to the project's scripts and documentation for the exact startup procedure.
+Refer to the repository's scripts for the exact startup procedure.
 
 ## Key Metrics
 
@@ -184,7 +156,7 @@ Refer to the project's scripts and documentation for the exact startup procedure
 
 ## Security and Privacy
 
-ObserveAI incorporates PII redaction and telemetry into its monitoring workflow. Production deployments should additionally implement appropriate authentication, authorization, secure credential management, access controls, and data-retention policies.
+ObserveAI incorporates PII redaction and telemetry into its monitoring workflow. Production deployments should also implement authentication, authorization, secure credential management, access controls, and appropriate data-retention policies.
 
 ## Potential Enhancements
 
@@ -192,21 +164,13 @@ ObserveAI incorporates PII redaction and telemetry into its monitoring workflow.
 - Advanced RAG evaluation metrics, including context precision and recall.
 - Prompt versioning and comparative evaluation.
 - Configurable alerts and notification integrations.
-- Multi-model benchmarking.
-- Historical evaluation reports and performance comparisons.
+- Multi-model benchmarking and historical reports.
 
 ## Author
 
-**Dhanyashree N**
-
+**Dhanyashree N**  
 GitHub: [@dhanyaa07](https://github.com/dhanyaa07)
-
-## License
-
-Add a license file to the repository if you intend to distribute the project under an open-source license.
 
 ---
 
-<p align="center">
-  <strong>ObserveAI — Improving the reliability and transparency of AI systems.</strong>
-</p>
+<p align="center"><strong>ObserveAI — Improving the reliability and transparency of AI systems.</strong></p>
